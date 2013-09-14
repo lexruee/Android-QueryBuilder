@@ -1,4 +1,4 @@
-#Adroid-QueryBuilder
+#Android-QueryBuilder
 
 Android QueryBuilder is a simple library to construct sql select statements.
 
