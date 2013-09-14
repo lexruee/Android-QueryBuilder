@@ -120,7 +120,7 @@ String sql = builder.select().from("users").innerJoin("posts").on("posts.user_id
 SQL:
 
 ```
-SELECT * FROM users INNER JOIN posts on posts.user_id = user.id
+SELECT * FROM users INNER JOIN posts ON posts.user_id = user.id
 ```
 
 ###Like
