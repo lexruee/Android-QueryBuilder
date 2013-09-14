@@ -160,4 +160,14 @@ public class QueryBuilderTest {
 		assertEquals(shouldBe,test);
 	}
 
+	@Test
+	public void testHavingAndGroupBy(){
+		String shouldBe = "SELECT department, SUM(sales) AS total_sales FROM order_details GROUP BY department HAVING SUM(sales) > 1000";
+		QueryBuilder builder = new QueryBuilder();
+		String sql = builder.select("department", "SUM(sales) AS total_sales")
+				.from("order_details").groupBy("department")
+				.having("SUM(sales)").greater(1000).build();
+		
+		assertEquals(shouldBe,sql);
+	}
 }
