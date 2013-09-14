@@ -148,8 +148,32 @@ SQL:
 SELECT * FROM users GROUP BY city
 ```
 
+```
+QueryBuilder builder = new QueryBuilder();
+String sql = builder.select().from("users").groupBy("city").build();
+```
 
+SQL:
 
+```
+SELECT * FROM users GROUP BY city
+```
+
+###Having
+```
+QueryBuilder builder = new QueryBuilder();
+String sql = builder.select("department","SUM(sales) AS total_sales")
+	.from("order_details")
+	.groupBy("department")
+	.having("SUM(sales)")
+	.greater(1000).build();
+```
+
+SQL:
+
+```
+SELECT department, SUM(sales) AS total_sales FROM order_details GROUP BY department HAVING SUM(sales) > 1000
+```
 
 
 
